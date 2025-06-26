@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tostçu Dayım - Hopa'nın En Lezzetli Tostları</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#5B21B6", secondary: "#FFFFFF" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      }
+      .logo-text {
+      font-family: 'Pacifico', serif;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      input[type=number] {
+      -moz-appearance: textfield;
+      }
+      .hero-section {
+      background-image: linear-gradient(to right, rgba(91, 33, 182, 0.9), rgba(91, 33, 182, 0.7), rgba(0, 0, 0, 0)), url('https://readdy.ai/api/search-image?query=A%20delicious%2C%20mouth-watering%20grilled%20toast%20sandwich%20with%20melted%20cheese%20oozing%20out%20from%20the%20sides%2C%20perfectly%20toasted%20golden%20brown%20bread%20with%20visible%20grill%20marks%2C%20served%20on%20a%20rustic%20wooden%20plate%20with%20some%20fresh%20vegetables%20on%20the%20side%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting%2C%20high-resolution%20image%20with%20vibrant%20colors&width=1920&height=1080&seq=toast1&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+      .category-tab.active {
+      color: white;
+      background-color: #5B21B6;
+      }
+      .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .featured-product-card {
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <div class="w-12 h-12 flex items-center justify-center mr-3">
+            <img
+              src="https://static.readdy.ai/image/d03ae8f7e44d3ba97bf2395964adad09/be14396ad3cfc0d81a42f5f6b57fc293.jpeg"
+              alt="Tostçu Dayım Logo"
+              class="w-full h-full rounded-full object-cover"
+            />
+          </div>
+          <span class="logo-text text-primary text-2xl">Tostçu Dayım</span>
+        </div>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#"
+            class="font-medium text-primary hover:text-primary/80 transition"
+            >Ana Sayfa</a
+          >
+          <a
+            href="#menu"
+            class="font-medium text-gray-700 hover:text-primary transition"
+            >Menü</a
+          >
+          <a
+            href="#about"
+            class="font-medium text-gray-700 hover:text-primary transition"
+            >Hakkımızda</a
+          >
+          <a
+            href="#contact"
+            class="font-medium text-gray-700 hover:text-primary transition"
+            >İletişim</a
+          >
+          <button
+            onclick="window.location.href='#contact'"
+            class="flex items-center bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+          >
+            <div class="w-5 h-5 flex items-center justify-center mr-2">
+              <i class="ri-phone-line"></i>
+            </div>
+            <span>İletişime Geç</span>
+          </button>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+          id="mobileMenuButton"
+        >
+          <i class="ri-menu-line text-2xl"></i>
+        </button>
+      </div>
+      <!-- Mobile Navigation -->
+      <div
+        class="md:hidden hidden bg-white absolute w-full border-t border-gray-100 shadow-md"
+        id="mobileMenu"
+      >
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+          <a
+            href="#"
+            class="font-medium text-primary py-2 border-b border-gray-100"
+            >Ana Sayfa</a
+          >
+          <a
+            href="#menu"
+            class="font-medium text-gray-700 py-2 border-b border-gray-100"
+            >Menü</a
+          >
+          <a
+            href="#about"
+            class="font-medium text-gray-700 py-2 border-b border-gray-100"
+            >Hakkımızda</a
+          >
+          <a
+            href="#contact"
+            class="font-medium text-gray-700 py-2 border-b border-gray-100"
+            >İletişim</a
+          >
+          <button
+            onclick="window.location.href='#contact'"
+            class="flex items-center justify-center bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+          >
+            <div class="w-5 h-5 flex items-center justify-center mr-2">
+              <i class="ri-phone-line"></i>
+            </div>
+            <span>İletişime Geç</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section w-full min-h-[600px] flex items-center">
+      <div class="container mx-auto px-4 py-16 md:py-24">
+        <div class="max-w-2xl">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+          >
+            Hopa'nın En Lezzetli Tostları
+          </h1>
+          <p class="text-lg md:text-xl text-white/90 mb-8">
+            Özenle seçilen malzemeler ve özel tarifleriyle damağınızda iz
+            bırakacak eşsiz lezzetler.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#menu"
+              class="bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition whitespace-nowrap"
+              >Menüyü Gör</a
+            >
+            <a
+              href="#about"
+              class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-button font-medium hover:bg-white/10 transition whitespace-nowrap"
+              >İletişim</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Products -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">
+            Öne Çıkan Lezzetlerimiz "Fotograflar Temsilidir"
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            En çok tercih edilen ve müşterilerimizin favorisi olan
+            lezzetlerimizi keşfedin.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Featured Product 1 -->
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20delicious%20grilled%20cheese%20toast%20sandwich%20with%20melted%20cheddar%20cheese%20oozing%20out%20from%20the%20sides%2C%20perfectly%20toasted%20golden%20brown%20bread%20with%20visible%20grill%20marks%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting%2C%20high-resolution%20image%20with%20vibrant%20colors&width=600&height=400&seq=toast2&orientation=landscape"
+                alt="Bomba Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                 Bazlama Tost
+                </h3>
+                <span class="text-primary font-bold">₺230</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+               Özel bazlama ekmeği ile hazırlanan enfes lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <!-- Featured Product 2 -->
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20delicious%20toast%20sandwich%20with%20sucuk%20%28Turkish%20sausage%29%20and%20melted%20cheese%2C%20perfectly%20toasted%20golden%20brown%20bread%20with%20visible%20grill%20marks%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting%2C%20high-resolution%20image%20with%20vibrant%20colors&width=600&height=400&seq=toast3&orientation=landscape"
+                alt="Bomba Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                 Atom Tost
+                </h3>
+                <span class="text-primary font-bold">₺170</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+             Özel atom sosu ile hazırlanan acılı lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <!-- Featured Product 3 -->
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20delicious%20mixed%20toast%20sandwich%20with%20ham%2C%20cheese%2C%20tomatoes%20and%20various%20ingredients%2C%20perfectly%20toasted%20golden%20brown%20bread%20with%20visible%20grill%20marks%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting%2C%20high-resolution%20image%20with%20vibrant%20colors&width=600&height=400&seq=toast4&orientation=landscape"
+                alt="Bomba Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Bomba Tost
+                </h3>
+                <span class="text-primary font-bold">₺190</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+               Özel bazlama ekmeği ile hazırlanan enfes lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <a
+            href="#menu"
+            class="inline-block border-2 border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:text-white transition whitespace-nowrap"
+            >Tüm Menüyü Gör</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- Daily Menu -->
+    <section class="py-16 bg-gray-50" id="menu">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Günün Menüsü</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Bugüne özel hazırladığımız lezzetli menümüzü keşfedin.
+          </p>
+        </div>
+        <!-- Category Tabs -->
+        <div class="flex justify-center mb-10">
+          <div class="inline-flex bg-white p-1 rounded-full shadow-sm">
+            <button
+              class="category-tab active px-5 py-2 rounded-full text-sm font-medium transition"
+              data-category="all"
+            >
+              Tümü
+            </button>
+            <button
+              class="category-tab px-5 py-2 rounded-full text-sm font-medium text-gray-700 transition"
+              data-category="tost"
+            >
+              Tostlar
+            </button>
+            <button
+              class="category-tab px-5 py-2 rounded-full text-sm font-medium text-gray-700 transition"
+              data-category="other"
+            >
+              Diğer
+            </button>
+            <button
+              class="category-tab px-5 py-2 rounded-full text-sm font-medium text-gray-700 transition"
+              data-category="drink"
+            >
+              İçecekler
+            </button>
+          </div>
+        </div>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Tostlar -->
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="tost"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20delicious%20traditional%20Turkish%20bazlama%20toast%20with%20melted%20cheese%20and%20butter%2C%20served%20on%20a%20rustic%20wooden%20plate%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting&width=600&height=400&seq=bazlama1&orientation=landscape"
+                alt="Bazlama Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Bazlama Tost
+                </h3>
+                <span class="text-primary font-bold">₺230</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Özel bazlama ekmeği ile hazırlanan enfes lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="tost"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20loaded%20Turkish%20toast%20sandwich%20with%20multiple%20layers%20of%20ingredients%2C%20cheese%20melting%20from%20sides%2C%20served%20on%20a%20dark%20plate%2C%20professional%20food%20photography&width=600&height=400&seq=bomba1&orientation=landscape"
+                alt="Bomba Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">Bomba Tost</h3>
+                <span class="text-primary font-bold">₺190</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Bol malzemeli özel karışım bomba lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="tost"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20spicy%20Turkish%20toast%20sandwich%20with%20special%20ingredients%20and%20melted%20cheese%2C%20served%20with%20garnish%2C%20professional%20food%20photography&width=600&height=400&seq=atom1&orientation=landscape"
+                alt="Atom Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">Atom Tost</h3>
+                <span class="text-primary font-bold">₺170</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Özel atom sosu ile hazırlanan acılı lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="tost"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20Turkish%20toast%20with%20kavurma%20%28braised%20meat%29%20and%20vegetables%2C%20professionally%20plated%20with%20garnish%2C%20food%20photography&width=600&height=400&seq=kavurma1&orientation=landscape"
+                alt="Kavurmalı Sebzeli Tost"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Kavurmalı Sebzeli Tost
+                </h3>
+                <span class="text-primary font-bold">₺230</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Özel kavurma ve taze sebzeler ile hazırlanan lezzet.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="other"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Crispy%20chicken%20wings%20with%20special%20sauce%2C%20served%20on%20a%20modern%20plate%20with%20garnish%2C%20professional%20food%20photography&width=600&height=400&seq=wings1&orientation=landscape"
+                alt="Çıtır Tavuk Kanat"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Çıtır Tavuk Kanat
+                </h3>
+                <span class="text-primary font-bold">₺239</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Özel soslu çıtır tavuk kanatları.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="other"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Turkish%20patso%20sandwich%20with%20french%20fries%20and%20special%20sauce%2C%20served%20on%20paper%2C%20street%20food%20style%20photography&width=600&height=400&seq=patso1&orientation=landscape"
+                alt="Patso Sandviç"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Patso Sandviç
+                </h3>
+                <span class="text-primary font-bold">₺170</span>
+              </div>
+              <p class="text-gray-600 mb-4">Özel soslu patates sandviç.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="other"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Large%20Turkish%20patso%20sandwich%20with%20extra%20french%20fries%20and%20special%20sauce%2C%20served%20on%20paper%2C%20street%20food%20style%20photography&width=600&height=400&seq=patso2&orientation=landscape"
+                alt="Patso Sandviç (XL)"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Patso Sandviç (XL)
+                </h3>
+                <span class="text-primary font-bold">₺190</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Büyük boy özel soslu patates sandviç.
+              </p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <!-- İçecekler -->
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Cold%20Coca-Cola%20can%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=cola1&orientation=landscape"
+                alt="Coca-Cola"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Coca-Cola (33 cl.)
+                </h3>
+                <span class="text-primary font-bold">₺50</span>
+              </div>
+              <p class="text-gray-600 mb-4">Soğuk Coca-Cola kutu içecek.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Cold%20Fanta%20can%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=fanta1&orientation=landscape"
+                alt="Fanta"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Fanta (33 cl.)
+                </h3>
+                <span class="text-primary font-bold">₺50</span>
+              </div>
+              <p class="text-gray-600 mb-4">Soğuk Fanta kutu içecek.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Cold%20Sprite%20can%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=sprite1&orientation=landscape"
+                alt="Sprite"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Sprite (33 cl.)
+                </h3>
+                <span class="text-primary font-bold">₺50</span>
+              </div>
+              <p class="text-gray-600 mb-4">Soğuk Sprite kutu içecek.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Cold%20Cappy%20juice%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=cappy1&orientation=landscape"
+                alt="Cappy"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Cappy (33 cl.)
+                </h3>
+                <span class="text-primary font-bold">₺50</span>
+              </div>
+              <p class="text-gray-600 mb-4">Soğuk Cappy meyve suyu.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Cold%20Fuse%20Tea%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=fusetea1&orientation=landscape"
+                alt="Fuse Tea"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Fuse Tea (33 cl.)
+                </h3>
+                <span class="text-primary font-bold">₺50</span>
+              </div>
+              <p class="text-gray-600 mb-4">Soğuk Fuse Tea içecek.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Cold%20sparkling%20fruit%20soda%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=soda1&orientation=landscape"
+                alt="Meyveli Soda"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Meyveli Soda (20 cl.)
+                </h3>
+                <span class="text-primary font-bold">₺25</span>
+              </div>
+              <p class="text-gray-600 mb-4">Soğuk meyveli soda.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Large%202.5L%20Coca-Cola%20bottle%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=cola2&orientation=landscape"
+                alt="Coca-Cola"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Coca-Cola (2,5 L.)
+                </h3>
+                <span class="text-primary font-bold">₺90</span>
+              </div>
+              <p class="text-gray-600 mb-4">Büyük boy Coca-Cola.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="drink"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Large%202.5L%20Fanta%20bottle%20with%20condensation%20drops%2C%20professional%20beverage%20photography&width=600&height=400&seq=fanta2&orientation=landscape"
+                alt="Fanta"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Fanta (2,5 L.)
+                </h3>
+                <span class="text-primary font-bold">₺90</span>
+              </div>
+              <p class="text-gray-600 mb-4">Büyük boy Fanta.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+          <!-- Diğer -->
+          <div
+            class="rounded-lg overflow-hidden shadow-md bg-white transition-all duration-300 product-card"
+            data-category="other"
+          >
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-semibold text-gray-900">Poşet</h3>
+                <span class="text-primary font-bold">₺0,50</span>
+              </div>
+              <p class="text-gray-600 mb-4">Çevre dostu taşıma poşeti.</p>
+              <button
+                class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us -->
+    <section class="py-16 bg-white" id="about">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Hakkımızda</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            2015 yılından beri Hopa'da hizmet vermekteyiz.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Hikayemiz</h3>
+            <p class="text-gray-600 mb-4">
+              Tostçu Dayım, 2015 yılında Hopa'nın merkezinde küçük bir dükkânda
+              hizmet vermeye başladı. Kurucumuz Mehmet Yılmaz'ın lezzet tutkusu
+              ve kaliteli malzeme konusundaki ısrarı, kısa sürede bizi bölgenin
+              en sevilen tost duraklarından biri haline getirdi.
+            </p>
+            <p class="text-gray-600 mb-6">
+              Bugün, genişleyen menümüz ve artan müşteri memnuniyetimizle Hopa
+              halkına hizmet vermeye devam ediyoruz. Amacımız, her zaman en taze
+              malzemelerle en lezzetli tostları sunmak ve müşterilerimize
+              unutulmaz bir deneyim yaşatmak.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-primary mb-2">
+                  Misyonumuz
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  Hopa halkına hızlı, lezzetli ve uygun fiyatlı tostlar sunmak.
+                </p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-primary mb-2">
+                  Vizyonumuz
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  Bölgenin en sevilen ve güvenilir tost markası olmak.
+                </p>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Kalite Politikamız
+            </h3>
+            <p class="text-gray-600">
+              Tostçu Dayım olarak, her zaman en taze ve kaliteli malzemeleri
+              kullanmayı, hijyen kurallarına sıkı sıkıya bağlı kalmayı ve
+              müşteri memnuniyetini en üst seviyede tutmayı taahhüt ediyoruz.
+            </p>
+          </div>
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqJheoQm-6S43PQkf0J-yXIM4_3wHFoVbN8_b2lh1U65NCTrXdA4ZNsnCGYaua7Z6hCq43HVVpA-M6mHRtV6iIswb3pdNt0yiRkcD0kddWbjZ1xSZPcZht9_0W5sGRae7MSPSmJ=s680-w680-h510-rw"
+              alt="Tostçu Dayım Mağaza"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <!-- Working Hours and Map -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              Çalışma Saatlerimiz
+            </h3>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="border-b border-gray-200 pb-2">
+                  <p class="font-medium text-gray-900">Pazartesi - Cuma</p>
+                  <p class="text-gray-600">09:00 - 22:00</p>
+                </div>
+                <div class="border-b border-gray-200 pb-2">
+                  <p class="font-medium text-gray-900">Cumartesi</p>
+                  <p class="text-gray-600">10:00 - 23:00</p>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">Pazar</p>
+                  <p class="text-gray-600">11:00 - 21:00</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-6">
+              İletişim Bilgilerimiz
+            </h3>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <div class="flex items-start mb-4">
+                <div
+                  class="w-10 h-10 flex items-center justify-center text-primary mr-4"
+                >
+                  <i class="ri-map-pin-line text-xl"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900 mb-1">Adres</p>
+                  <p class="text-gray-600">
+                    Merkez Mahallesi, Atatürk Caddesi No: 45, Hopa/Artvin
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start mb-4">
+                <div
+                  class="w-10 h-10 flex items-center justify-center text-primary mr-4"
+                >
+                  <i class="ri-phone-line text-xl"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900 mb-1">Telefon</p>
+                  <p class="text-gray-600">+90 535 868 3604</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center text-primary mr-4"
+                >
+                  <i class="ri-mail-line text-xl"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900 mb-1">E-posta</p>
+                  <p class="text-gray-600">info@tostcudayim.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Form -->
+    <section class="py-16 bg-gray-50" id="contact">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">İletişim</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Sipariş vermek veya görüşlerinizi iletmek için bize ulaşın.
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8">
+          <form>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Ad Soyad</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                  placeholder="Adınız Soyadınız"
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >E-posta</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                  placeholder="ornek@mail.com"
+                />
+              </div>
+              <div>
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Telefon</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                  placeholder="05XX XXX XX XX"
+                />
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Konu</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                  placeholder="Mesajınızın konusu"
+                />
+              </div>
+            </div>
+            <div class="mb-6">
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Mesajınız</label
+              >
+              <textarea
+                id="message"
+                rows="5"
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                placeholder="Mesajınızı buraya yazın..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+            >
+              Gönder
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3"
+              >
+                <span class="logo-text text-primary text-lg">TD</span>
+              </div>
+              <span class="logo-text text-white text-xl">Tostçu Dayım</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              2015'ten beri Hopa'nın en lezzetli tostlarını sunuyoruz.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"
+              >
+                <i class="ri-facebook-fill text-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"
+              >
+                <i class="ri-instagram-line text-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"
+              >
+                <i class="ri-twitter-x-line text-sm"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Hızlı Erişim</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Ana Sayfa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menu"
+                  class="text-gray-400 hover:text-white transition"
+                  >Menü</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition"
+                  >Hakkımızda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition"
+                  >İletişim</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">İletişim</h4>
+            <ul class="space-y-3">
+              <li class="flex">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3"
+                >
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span class="text-gray-400"
+                  >1.Şube:Artvin yolu üzeri üniversite yanı
+2.Şube:Orta hopa mahallesi Turgay ciner caddesi 61/D Tostcu dayım</span
+                >
+              </li>
+              <li class="flex">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3"
+                >
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-400">+90 466 123 45 67</span>
+              </li>
+              <li class="flex">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3"
+                >
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-400">info@tostcudayim.com</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Çalışma Saatleri</h4>
+            <ul class="space-y-2">
+              <li class="flex justify-between">
+                <span class="text-gray-400">Pazartesi - Cuma:</span>
+                <span class="text-gray-400">09:00 - 22:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-gray-400">Cumartesi:</span>
+                <span class="text-gray-400">10:00 - 23:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-gray-400">Pazar:</span>
+                <span class="text-gray-400">11:00 - 21:00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Tostçu Dayım. Tüm hakları saklıdır.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-gray-400 text-sm hover:text-white transition"
+              >Gizlilik Politikası</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 text-sm hover:text-white transition"
+              >Kullanım Şartları</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Mobile Menu Script -->
+    <script id="mobileMenuScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenuButton.addEventListener("click", function () {
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.remove("hidden");
+          } else {
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+    <!-- Category Tabs Script -->
+    <script id="categoryTabsScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryTabs = document.querySelectorAll(".category-tab");
+        const productCards = document.querySelectorAll(
+          ".product-card[data-category]",
+        );
+        categoryTabs.forEach((tab) => {
+          tab.addEventListener("click", function () {
+            // Remove active class from all tabs
+            categoryTabs.forEach((t) => t.classList.remove("active"));
+            // Add active class to clicked tab
+            this.classList.add("active");
+            const category = this.getAttribute("data-category");
+            // Show/hide products based on category
+            productCards.forEach((card) => {
+              if (
+                category === "all" ||
+                card.getAttribute("data-category") === category
+              ) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+    <!-- Admin Login Modal -->
+    <div
+      id="adminLoginModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Admin Girişi</h2>
+        <form id="adminLoginForm">
+          <div class="mb-4">
+            <label
+              for="adminUsername"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Kullanıcı Adı</label
+            >
+            <input
+              type="text"
+              id="adminUsername"
+              class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="adminPassword"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Şifre</label
+            >
+            <input
+              type="password"
+              id="adminPassword"
+              class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+            />
+          </div>
+          <div class="flex justify-between items-center">
+            <button
+              type="submit"
+              class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-primary/90 transition"
+            >
+              Giriş Yap
+            </button>
+            <button
+              type="button"
+              onclick="closeAdminLogin()"
+              class="text-gray-600 hover:text-gray-900"
+            >
+              İptal
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="fixed inset-0 bg-gray-100 hidden z-50">
+      <div class="flex h-full">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-lg">
+          <div class="p-4 border-b">
+            <div class="flex items-center">
+              <img
+                src="https://static.readdy.ai/image/d03ae8f7e44d3ba97bf2395964adad09/be14396ad3cfc0d81a42f5f6b57fc293.jpeg"
+                alt="Logo"
+                class="w-10 h-10 rounded-full mr-3"
+              />
+              <span class="font-bold text-lg">Admin Panel</span>
+            </div>
+          </div>
+          <nav class="p-4">
+            <ul class="space-y-2">
+              <li>
+                <button
+                  onclick="showAdminSection('dashboard')"
+                  class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <i class="ri-dashboard-line mr-3"></i>
+                  Dashboard
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="showAdminSection('menu')"
+                  class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <i class="ri-restaurant-line mr-3"></i>
+                  Menü Yönetimi
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="showAdminSection('orders')"
+                  class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <i class="ri-shopping-bag-line mr-3"></i>
+                  Siparişler
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="showAdminSection('settings')"
+                  class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <i class="ri-settings-line mr-3"></i>
+                  Ayarlar
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="logoutAdmin()"
+                  class="w-full flex items-center px-4 py-2 text-red-600 hover:bg-red-50 rounded"
+                >
+                  <i class="ri-logout-box-line mr-3"></i>
+                  Çıkış Yap
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto p-8">
+          <!-- Dashboard Section -->
+          <div id="adminDashboard" class="admin-section">
+            <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-2">Günlük Siparişler</h3>
+                <p class="text-3xl font-bold text-primary">24</p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-2">Toplam Gelir</h3>
+                <p class="text-3xl font-bold text-primary">₺4,580</p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-2">Aktif Ürünler</h3>
+                <p class="text-3xl font-bold text-primary">15</p>
+              </div>
+            </div>
+          </div>
+          <!-- Menu Management Section -->
+          <div id="adminMenu" class="admin-section hidden">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-2xl font-bold">Menü Yönetimi</h2>
+              <button
+                onclick="showAddProductModal()"
+                class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-primary/90 transition"
+              >
+                <i class="ri-add-line mr-2"></i>Yeni Ürün Ekle
+              </button>
+            </div>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+              <table class="w-full">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Ürün
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Kategori
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Fiyat
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Durum
+                    </th>
+                    <th
+                      class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      İşlemler
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <!-- Sample Product Rows -->
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <img
+                          class="h-10 w-10 rounded-full object-cover"
+                          src="https://readdy.ai/api/search-image?query=A%20delicious%20traditional%20Turkish%20bazlama%20toast&width=100&height=100&seq=bazlama2&orientation=square"
+                          alt=""
+                        />
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">
+                            Bazlama Tost
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-900">Tostlar</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-900">₺230</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                      >
+                        Aktif
+                      </span>
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
+                    >
+                      <button class="text-primary hover:text-primary/80 mr-3">
+                        Düzenle
+                      </button>
+                      <button class="text-red-600 hover:text-red-800">
+                        Sil
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Orders Section -->
+          <div id="adminOrders" class="admin-section hidden">
+            <h2 class="text-2xl font-bold mb-6">Siparişler</h2>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+              <table class="w-full">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Sipariş No
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Müşteri
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Tutar
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Durum
+                    </th>
+                    <th
+                      class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      İşlemler
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <!-- Sample Order Row -->
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm font-medium text-gray-900">
+                        #12345
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-900">Ahmet Yılmaz</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-900">₺460</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                      >
+                        Hazırlanıyor
+                      </span>
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
+                    >
+                      <button class="text-primary hover:text-primary/80">
+                        Detay
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Settings Section -->
+          <div id="adminSettings" class="admin-section hidden">
+            <h2 class="text-2xl font-bold mb-6">Ayarlar</h2>
+            <div class="bg-white rounded-lg shadow p-6">
+              <div class="max-w-xl">
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-1"
+                    >Mağaza Adı</label
+                  >
+                  <input
+                    type="text"
+                    value="Tostçu Dayım"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-1"
+                    >Adres</label
+                  >
+                  <textarea
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                    rows="3"
+                  >
+Merkez Mahallesi, Atatürk Caddesi No: 45, Hopa/Artvin</textarea
+                  >
+                </div>
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-1"
+                    >Telefon</label
+                  >
+                  <input
+                    type="tel"
+                    value="+90 466 123 45 67"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                  />
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-primary/90 transition"
+                >
+                  Kaydet
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script id="adminScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Admin Login Functions
+        window.showAdminLogin = function () {
+          document.getElementById("adminLoginModal").classList.remove("hidden");
+          document.getElementById("adminLoginModal").classList.add("flex");
+        };
+        window.closeAdminLogin = function () {
+          document.getElementById("adminLoginModal").classList.remove("flex");
+          document.getElementById("adminLoginModal").classList.add("hidden");
+        };
+        window.showAdminPanel = function () {
+          document.getElementById("adminPanel").classList.remove("hidden");
+          showAdminSection("dashboard");
+        };
+        window.hideAdminPanel = function () {
+          document.getElementById("adminPanel").classList.add("hidden");
+        };
+        window.showAdminSection = function (sectionId) {
+          document.querySelectorAll(".admin-section").forEach((section) => {
+            section.classList.add("hidden");
+          });
+          document
+            .getElementById(
+              "admin" + sectionId.charAt(0).toUpperCase() + sectionId.slice(1),
+            )
+            .classList.remove("hidden");
+        };
+        window.logoutAdmin = function () {
+          hideAdminPanel();
+        };
+        // Admin Login Form Submit
+        document
+          .getElementById("adminLoginForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = document.getElementById("adminUsername").value;
+            const password = document.getElementById("adminPassword").value;
+            // Simple authentication (replace with proper authentication in production)
+            if (username === "admin" && password === "admin") {
+              closeAdminLogin();
+              showAdminPanel();
+            } else {
+              alert("Hatalı kullanıcı adı veya şifre!");
+            }
+          });
+        // Add keyboard shortcut for admin panel (Ctrl + Shift + A)
+        document.addEventListener("keydown", function (e) {
+          if (e.ctrlKey && e.shiftKey && e.key === "A") {
+            showAdminLogin();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
